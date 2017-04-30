@@ -27,13 +27,16 @@ Following are the steps required to submit your code.
 ### Create A Branch
 
 Create a branch and check it out with your team name.
+
 `git checkout -b team-xx`
+
 **Example**
+
 `git checkout -b team-01`
 
 ### Put Your Changes
 
-Yes now here is the step where you put your changes in the create branch of your forked project.
+Yes now here is the step where you put your changes in branch you just created in your forked project.
 
 1. Add your files/folders using git add
 
