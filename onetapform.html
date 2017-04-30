@@ -1,0 +1,436 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>One Tap App</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/chosen.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+	<div class="top-bar">
+        <div class="container">
+			<div>
+				<div class="logoNew">
+					<a class="" href="/dubai" title="Home">
+						<img src="assets/images/logo.png" alt="CAREEM" class="img-responsive logo-img-new">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-md-offset-4 m50 main-form">
+		<form name="one-tap-form">
+		  <div class="form-group">
+			<label for="phone_number" class="form-label phone-number">Phone Number: </label>
+			<!--<input onkeydown="return (event.keyCode != 13);" type="text" class="form-control" id="phone_number" placeholder="+92-123-1234567">-->
+			<input onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 43 || event.charCode == 45' onkeydown="return (event.keyCode != 13);" type="text" class="form-control" id="phone_number" maxlength='15' placeholder="+92-123-1234567">
+		  </div>
+		  <div class="form-group">
+		  <label for="type" class="form-label">Car Type: </label>
+			<select id="type" class="col-md-4">
+				<option value="go">Go</option>
+				<option value="goplus">Go+</option>
+			</select>
+		  </div>
+		  <div class="form-group col-md-12 no-padding">
+			<input onkeydown="return (event.keyCode != 13);" id="pac-input" class="form-control" type="text" placeholder="Drop off Location">
+			<div id = "map" class="mt-t-140"></div>
+		  </div>
+		
+		  <button type="button" name="submit" id="submit" class="sbmt-btn btn btn-info pull-right">Book Now</button>
+		  
+		</form>
+	</div>
+	<div class="modal fade" id="alertModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Booking Info</h4>
+				</div>
+				<div class="modal-body">
+					<!-- <div id="output"></div> -->
+					<p>Captain Name: Lamak Qaizar</p>
+					<p>Phone No: +923453064271</p>
+					<p>Vehicle Make: Toyota</p>
+					<p>Vehicle Model: Camry</p>
+					<p>Vehicle Color: Black</p>
+					<p>Vehicle Licence Plate: 1234</p>
+					<p>Estimated Price: 300 PKR</p>
+					<p>Estimated Time: 5 min</p>
+				</div>
+				<div class="modal-footer">
+					<input type="text" class="form-control" placeholder="PIN" style="width:80%" >
+					<button type="button" id="modalButtonSubmit" name="modalButtonSubmit" class="btn btn-success">Confirm PIN</button>
+					<div id="myDivGIF"></div>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+  
+	
+	<footer class="footer" id="page_footer">
+    <div class="container">
+        <div class="app-here">
+            <div class="available">
+				<h3>Download the app here</h3>
+                <ul class="download">
+					<li><img alt="" src="assets/images/playstore.svg" width="112"></li>
+					<li><img alt="" src="assets/images/appstore.svg" width="112"></li>
+				</ul>
+                <div style="clear: both"></div>
+            </div>
+            <div class="hidden-xs new-footer-link col-xs-6 hidden-xs hidden-sm">
+				<div class="region region-footer">
+					<section id="block-menu-menu-footer-menu" class="block block-menu clearfix">
+						<h2 class="block-title">Footer Links</h2>
+						<ul class="menu nav">
+							<li class="first leaf">Home</li>
+							<li class="leaf">Company</li>
+							<li class="leaf">Why Careem</li>
+							<li class="leaf">Products</li>
+							<li class="leaf">For Business</li>
+							<li class="leaf">Blog</li>
+							<li class="leaf">Press</li>
+							<li class="leaf">Help</li>
+							<li class="leaf hidden-sm">Buy Credits</li>
+							<li class="leaf">Earn Credits</li>
+							<li class="last leaf">Careers</li>
+						</ul>
+					</section> <!-- /.block -->
+				</div>
+			</div>
+            <div class="social-links">
+                <ul class="icons">
+                    <li><a class="ico-twitter"></a></li>
+                    <li><a class="ico-fb"></a></li>
+                    <li><a class="ico-insta"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copy-rights">
+        <div class="container">
+            <p>© 2017, CAREEM. ALL RIGHTS RESERVED</p>
+            <ul class="hidden-xs bottom-links">
+                <li><a href="javascript:void(0);">TERMS OF SERVICE</a></li>
+                <li><a href="javascript:void(0);"> - </a></li>
+                <li><a href="javascript:void(0);">PRIVACY POLICY</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/chosen.jquery.min.js"></script>
+  <script>
+  
+  
+  
+	var count = 0;
+	$('#type').chosen({ width: '100%' });
+	var bookingId = "";
+	var EstimatedPrice = "";
+
+	var captainPhone = "";
+	var captainName = "";
+	var status = "";
+	var carModel = "";
+	var carMake = "";
+	var carNumber = "";
+
+	var products = new Array();
+	var pickupTimes = new Array();
+	var minTimeBookLater = new Array();
+	var cancelPrices = new Array();
+	var maxTimeCancel = new Array();
+	var currencyCode = new Array();
+
+	var lat,lng,latitude,longitude;
+	function initAutocomplete() {
+		if (navigator.geolocation) { navigator.geolocation.getCurrentPosition(showPosition); }
+		function showPosition(position) {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: position.coords.latitude, lng:  position.coords.longitude},
+				zoom: 13,
+				mapTypeId: 'roadmap'
+			});
+	
+			latitude=position.coords.latitude;
+			longitude=position.coords.longitude;
+
+
+	$.ajax({
+		type : 'GET',
+		headers: {"Authorization": "crl54u6cj8f3a7hkc304359lhg"},
+		dataType: 'json',
+		data: { "latitude": latitude, "longitude":longitude },
+		crossDomain:true,
+		async:true,
+		url: "http://qa-interface.careem-engineering.com/v1/products",
+		success: function(result){ 
+			if(result.products != null) {
+				//console.log(result);
+				var select = document.getElementById("type");
+				for(var i=0; i<result.products.length; i++) {
+					var availibility = [];
+					var basePrice = [];
+					var cancelPrice = [];
+					var maxTimeToCancel = [];
+					
+					if(result.products[i].availibility_now) { 
+						availibility.push("Now"); 
+						basePrice.push((result.products[i].price_details.base_now+result.products[i].price_details.minimum_now)); 
+						cancelPrice.push(result.products[i].price_details.cancellation_fee_now); 
+						cancelPrice.push(result.products[i].price_details.cancellation_fee_now); 
+						maxTimeToCancel.push(result.products[i].maximum_time_to_cancel_now); 
+					}
+					if(result.products[i].availibility_later) { 
+						availibility.push("LATER"); 
+						basePrice.push((result.products[i].price_details.base_later+result.products[i].price_details.minimum_later)); 
+						cancelPrice.push(result.products[i].price_details.cancellation_fee_later); 
+						maxTimeToCancel.push(result.products[i].maximum_time_to_cancel_later); 
+					}
+
+					if(!(jQuery.isEmptyObject(availibility))) {
+
+						/*console.log("CAPTAIN INFO");
+						console.log("Car Type: " + result.products[i].display_name);
+						console.log("Availability: " + availibility);
+						console.log("Estimated Price: " + basePrice);
+						console.log("Estimated Time: " + "5 Minutes");*/
+						
+						
+						pickupTimes.push(((new Date())/1000)+(1000*result.products[i].minimum_time_to_book));
+						pickupTimes.push(((new Date())/1000)+(1000*result.products[i].minimum_time_to_book));
+						minTimeBookLater.push(result.products[i].minimum_time_to_book);
+						cancelPrices.push(cancelPrice[0]);
+						maxTimeCancel.push(maxTimeToCancel[0]);
+						currencyCode.push(result.products[i].price_details.currency_code);
+						products.push(result.products[i].product_id);
+						
+						//console.log("picup_time: " + ((new Date())/1000)+(1000*result.products[i].minimum_time_to_book));
+						//console.log("min_time_to_book_later: " + result.products[i].minimum_time_to_book);
+						//console.log("cancel_price_details: " + cancelPrice);
+						//console.log("max_time_to_cancel: " + maxTimeToCancel);
+						//console.log("currency_code: " + result.products[i].price_details.currency_code);
+						//console.log("product_id: " + result.products[i].product_id);
+						//console.log("");
+
+						var option = document.createElement("option");
+						option.text = result.products[i].display_name;
+						option.value = result.products[i].display_name;
+						select.add(option);
+							
+						console.log();
+						/*
+						var output = "<h3>CAPTAIN " + (i+1) + " INFO</h3>"
+						output += "<p>Car Type: " + result.products[i].display_name + "</p>";
+						output += "<p>Availability (Now): " + availibility[0] + "</p>";
+						output += "<p>Estimated Price (Now): " + basePrice[0] + "</p>";
+						output += "<p>Estimated Time: " + "5 Minutes" + "</p>";
+						
+						var div = document.createElement("div");
+						div.id="out_"+i;
+						div.innerHTML = output;
+						
+						document.getElementById("output").appendChild(div);
+						*/
+					}
+				}
+			}
+		}, 
+		error: function (xhr, ajaxOptions, thrownError) {
+			console.log("error");
+			console.log("xhr: " + xhr);
+			console.log("ajaxOptions: " + ajaxOptions);
+			console.log("thrownError: " + thrownError);
+		}
+	});
+
+			// Create the search box and link it to the UI element.
+			var input = document.getElementById('pac-input');
+			var searchBox = new google.maps.places.SearchBox(input);
+			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+			// Bias the SearchBox results towards current map's viewport.
+			map.addListener('bounds_changed', function() { searchBox.setBounds(map.getBounds()); });
+
+			var markers = [];
+			// Listen for the event fired when the user selects a prediction and retrieve
+			// more details for that place.
+			searchBox.addListener('places_changed', function() {
+				var places = searchBox.getPlaces();
+				if (places.length == 0) { return; }
+
+				// Clear out the old markers.
+				markers.forEach(function(marker) { marker.setMap(null); });
+				markers = [];
+
+				// For each place, get the icon, name and location.
+				var bounds = new google.maps.LatLngBounds();
+				places.forEach(function(place) {
+					if (!place.geometry) { console.log("Returned place contains no geometry"); return; }
+					lat = place.geometry.location.lat() ;
+					lng = place.geometry.location.lng() ;
+			
+					var icon = {
+						url: place.icon,
+						size: new google.maps.Size(71, 71),
+						origin: new google.maps.Point(0, 0),
+						anchor: new google.maps.Point(17, 34),
+						scaledSize: new google.maps.Size(25, 25)
+					};
+
+					// Create a marker for each place.
+					markers.push(new google.maps.Marker({
+						map: map,
+						icon: icon,
+						title: place.name,
+						position: place.geometry.location
+					}));
+
+					if (place.geometry.viewport) {
+						// Only geocodes have viewport.
+						bounds.union(place.geometry.viewport);
+					} 
+					else { bounds.extend(place.geometry.location); }
+				});
+				map.fitBounds(bounds);
+		   
+			});
+		}
+	}
+	
+	
+		var end_latitude = lat;//"24.8668";
+	var end_longitude = lng;//"67.0255";
+	var customerPhone = "923215794582";//document.getElementById("phone_number").value;//
+
+	$("#submit").bind("click", function() {
+		if(!(jQuery.isEmptyObject(document.getElementById("phone_number").value))) {
+		//document.getElementById().value
+	
+/*
+		$("#alertModal").modal('show');
+		console.log(products);
+		console.log(pickupTimes);
+		console.log(minTimeBookLater);
+		console.log(cancelPrices);
+		console.log(maxTimeCancel);
+		console.log(currencyCode);
+*/	
+		var index = 0;
+		var notes = "asd";
+		var data = "{" + 
+					"product_id:" + products[index] + "," + //
+					"booking_type:'NOW'," + 
+					"promo_code:''," + 
+					"driver_notes:'" + notes + "'," + 
+					"pickup_time:" + pickupTimes[index] + "," + 
+					"pickup_details:{" + 
+						"longitude:" + longitude + "," +  
+						"latitude:" + latitude + "," + 
+						"nickname:'pickup'" + 
+					"}," + 
+					"dropoff_details':{" + 
+						"longitude:" + end_longitude + "," +  
+						"latitude:" + end_latitude + "," + 
+						"nickname:'drop-off'" + 
+					"}," + 
+					"customer_details:{" + 
+						"uuid:'newbooking" + count + "team28" + "'," + 
+						"name:'Test_User_" + count + "team28" + "'," + 
+						"email:'a" + count + "team28" + "@gmail.com'," + 
+						"phone_number:'" + customerPhone + "'" + 
+					"}," + 
+					"surge_confirmation_id:'" + count + "'" + 
+				"}";
+
+		$.ajax({
+			type : 'POST',
+			headers: {"Authorization": "crl54u6cj8f3a7hkc304359lhg", "Content-Type":"application/json"},
+			//dataType: 'json',
+			data: data,
+			crossDomain:true,
+			async:true,
+			url: "http://qa-interface.careem-engineering.com/v1/bookings",
+			success: function(result){ 
+
+				if(result.booking_id !== null) {
+					bookingId = 77;//result.booking_id;
+					EstimatedPrice = basePrice[index]*result.surge_multiplier;
+					
+					console.log(result.booking_id);
+					console.log(result.surge_multiplier);
+			
+					if(bookingId !== null) {
+						$.ajax({
+							type : 'GET',
+							headers: {"Authorization": "crl54u6cj8f3a7hkc304359lhg"},
+							dataType: 'json',
+							//data: { "latitude": latitude, "longitude":longitude },
+							crossDomain:true,
+							async:true,
+							url: "http://qa-interface.careem-engineering.com/v1/bookings/"+bookingId.toString(),
+							success: function(response){ 
+								captainPhone = response.driver_details.driver_name;
+								captainName = response.driver_details.driver_number;
+								status = response.status;
+								carModel = response.vehicle_details.model;
+								carMake = response.vehicle_details.make;
+								carNumber = response.vehicle_details.license_plate;
+
+							}, 
+							error: function (xhr, ajaxOptions, thrownError) {
+								console.log("error-post-get");
+								console.log("xhr: " + xhr);
+								console.log("ajaxOptions: " + ajaxOptions);
+								console.log("thrownError: " + thrownError);
+							}
+						});
+					}
+				}
+
+			}, 
+			error: function (xhr, ajaxOptions, thrownError) {
+				console.log("error-post");
+				console.log("xhr: " + xhr);
+				console.log("ajaxOptions: " + ajaxOptions);
+				console.log("thrownError: " + thrownError);
+			}
+		});
+		count++;
+
+		//console.log(data);
+		}
+		else {
+			alert("Phone Number is required!")
+		}
+	});
+	$("#modalButtonSubmit").bind("click", function(){
+		$('#myDivGIF').html('<img src="assets/images/ring.gif" class="img-responsive myGif" width="50" height="50" />');
+		setTimeout(function(){ $('#myDivGIF').hide(); }, 5000);
+	});
+  </script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-1LsSiDn6x6DWTwmaI2LFB7IpA2oSSJ8&libraries=places&callback=initAutocomplete"
+         async defer></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+.m50{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.top-bar {
+    display: block;
+    background-color: #fff;
+    border-bottom: 1px solid #adaead;
+    min-height: 60px;
+}
+
+.main-form{
+	background-color: rgba(93, 182, 56, 0.48);
+}
+.sbmt-btn{
+	margin-bottom: 15px;
+}
+.phone-number{
+	margin-top: 15px;
+}
+.form-label{
+	color: #fff;
+}
+@media (min-width: 1050px)
+.container {
+    width: 1050px;
+}
+
+@media (min-width: 992px)
+.container {
+    width: 970px;
+}
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+.container, .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.logoNew {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+}
+.logo-img-new {
+    width: 107px!important;
+    margin: 16px auto!important;
+}
+
+.footer {
+    padding: 0;
+    background-color: #f0f7ed;
+    border-top: none;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.footer .app-here {
+    display: block;
+    overflow: hidden;
+    padding: 40px 0 55px;
+}
+.footer .app-here .available {
+    float: left;
+}
+.footer .app-here .available .download {
+    display: block;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 0 0 -4px;
+}
+.footer .app-here .available .download>li {
+    margin-right: 12px;
+}
+.footer .app-here .available .download>li {
+    margin-bottom: 20px;
+    float: left;
+}
+.footer .app-here .available .download {
+    display: block;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 0 0 -4px;
+}
+.new-footer-link {
+    float: left;
+    margin-left: 50px;
+}
+.col-xs-6 {
+    width: 50%;
+}
+.footer .social-links, .footer .social-links .icons {
+    float: right;
+}
+.footer .social-links .icons {
+    list-style-type: none;
+    margin-bottom: 28px;
+}
+.footer .social-links .icons>li {
+    margin-left: 19px;
+}
+.footer .social-links .icons>li {
+    float: left;
+}
+.footer .social-links .icons {
+    list-style-type: none;
+    margin-bottom: 28px;
+}
+.footer .social-links .icons>li .ico-twitter {
+    background: url(../assets/images/twitter.svg) no-repeat;
+    background-size: contain;
+}
+.footer .social-links .icons>li a {
+    display: block;
+    width: 30px;
+    height: 25px;
+    opacity: .7;
+}
+a {
+    color: #28bb4e;
+    text-decoration: none;
+}
+.footer .social-links .icons>li .ico-fb {
+    background: url(../assets/images/facebook.svg) no-repeat;
+    background-size: contain;
+    margin-right: -4px;
+}
+.footer .social-links .icons>li a {
+    display: block;
+    width: 30px;
+    height: 25px;
+    opacity: .7;
+}
+.footer .copy-rights {
+    border-top: solid 1px #d1d0d0;
+    min-height: 49px;
+    padding-top: 17px;
+}
+.footer .social-links .icons>li .ico-insta {
+    background: url(../assets/images/instagram.svg) no-repeat;
+    background-size: contain;
+    margin-right: -4px;
+}
+body>footer {
+    display: block;
+}
+body{
+	/* background: linear-gradient(to right, #aaffa9, #11ffbd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: url(../assets/images/road1.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.block:first-child h2.block-title, .page-header {
+    margin-top: 0;
+}
+.block:first-child h2.block-title {
+    margin-top: 0;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.new-footer-link .leaf {
+    width: 110px;
+	color: #28bb4e;
+    float: left;
+}
+ul li.collapsed, ul li.expanded, ul li.leaf {
+    list-style: none;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+.region-footer .block-title {
+    display: none;
+}
+.footer .copy-rights p {
+    text-transform: uppercase;
+    color: #28bb4e;
+}
+.footer .copy-rights p {
+    float: left;
+    font-size: 11px;
+}
+p {
+    margin: 0 0 9px;
+}
+.footer .copy-rights .bottom-links {
+    float: right;
+}
+.footer .copy-rights .bottom-links {
+    list-style-type: none;
+}
+.hidden-xs {
+    display: block!important;
+}
+.footer .copy-rights .bottom-links>li {
+    font-size: 11px;
+    margin-left: 33px;
+}
+.footer .copy-rights .bottom-links>li {
+    display: inline;
+    text-transform: uppercase;
+    color: #9e9e9f;
+}
+.footer .copy-rights .bottom-links {
+    list-style-type: none;
+}
+.footer .copy-rights .bottom-links>li>a {
+    color: #28bb4e;
+    font-family: CircularStd-Book,NotoKufiArabic-Regular,Arial,sans-serif;
+    font-size: 11px;
+}
+a {
+    background-color: transparent;
+}
+#map{
+	height: 350px;
+}
+.h-230 #map{
+    height: 230px;
+}
+#map.m-t-140 {
+	margin-top: 140px;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+#description {
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+}
+
+#infowindow-content .title {
+font-weight: bold;
+}
+
+#infowindow-content {
+display: none;
+}
+
+#map #infowindow-content {
+display: inline;
+}
+
+.pac-card {
+margin: 10px 10px 0 0;
+border-radius: 2px 0 0 2px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+outline: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+background-color: #fff;
+font-family: Roboto;
+}
+
+#pac-container {
+padding-bottom: 12px;
+margin-right: 12px;
+}
+
+.pac-controls {
+display: inline-block;
+padding: 5px 11px;
+}
+
+.pac-controls label {
+font-family: Roboto;
+font-size: 13px;
+font-weight: 300;
+}
+
+#pac-input {
+background-color: #fff;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+margin-left: 12px;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 200px;
+top: 8px !important;
+}
+
+#pac-input:focus {
+border-color: #4d90fe;
+}
+
+#title {
+color: #fff;
+background-color: #4d90fe;
+font-size: 25px;
+font-weight: 500;
+padding: 6px 12px;
+}
+#target {
+width: 345px;
+}
+.no-padding{
+	padding : 0px;
+}
