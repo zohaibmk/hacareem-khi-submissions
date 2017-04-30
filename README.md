@@ -5,15 +5,18 @@ Following are the steps required to submit your code.
 
 ### Fork This Repository
 
-1. First of all you need to fork [ this | https://github.com/lamakq/hacareem-khi-submissions ] repository. Just click on the fork button on the top-right of repository page.
-https://cloud.githubusercontent.com/assets/6990963/25556059/1d232eb2-2d0f-11e7-9d6e-d95f799c37a1.png
+1. First of all you need to fork [this] (https://github.com/lamakq/hacareem-khi-submissions) repository. Just click on the fork button on the top-right of repository page.
+
+![image](https://cloud.githubusercontent.com/assets/6990963/25556059/1d232eb2-2d0f-11e7-9d6e-d95f799c37a1.png)
 2. Wait few seconds and gitHub will create a fork of this repository under your ownership.
-https://cloud.githubusercontent.com/assets/6990963/25556095/fb137f74-2d0f-11e7-94c1-fed5da72cb9e.png
+
+![image](https://cloud.githubusercontent.com/assets/6990963/25556095/fb137f74-2d0f-11e7-94c1-fed5da72cb9e.png)
 
 ### Clone Your Fork
 
 1. Copy the clone URL from your fork.
-https://cloud.githubusercontent.com/assets/6990963/25556156/4125624c-2d11-11e7-9c9e-cd61b8afc683.png
+
+![image](https://cloud.githubusercontent.com/assets/6990963/25556156/4125624c-2d11-11e7-9c9e-cd61b8afc683.png)
 2. Clone the repo to your local machine.
 
 `git clone <forked-repo-url>`
