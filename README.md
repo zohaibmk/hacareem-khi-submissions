@@ -17,11 +17,13 @@ Following are the steps required to submit your code.
 1. Copy the clone URL from your fork.
 
 ![image](https://cloud.githubusercontent.com/assets/6990963/25556156/4125624c-2d11-11e7-9c9e-cd61b8afc683.png)
+
 2. Clone the repo to your local machine.
 
 `git clone <forked-repo-url>`
 
 **Example**
+
 `git clone https://github.com/mtariq61/hacareem-khi-submissions.git`
 
 ### Create A Branch
@@ -42,10 +44,14 @@ Yes now here is the step where you put your changes in branch you just created i
 
 `git add -A`
 
-2. Commit them to your local branch
+2. Commit them to your local branch. Your commit message should say "Solution submission for Problem xx"
 
-`git commit -m "Your commit message"`
+`git commit -m "Solution submission for problem xx"`
 
 3. Finally Push them the create branch of your Forked Repo
 
 `git push origin team-xx`
+
+
+# Note
+PLEASE DO NOT SUBMIT IN MASTER BRANCH. OTHER WISE YOUR MERGE WILL ENDUP IN CONFLICTS AND WILL NOT MERGE PROPERLY.
